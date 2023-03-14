@@ -1,0 +1,38 @@
+name: 'Setup Store Connect API'
+description: 'This action creates the JSON of the API key to use the Store Connect API.'
+inputs:
+  key-id:
+    description: >
+      Specifies the Key ID.
+    required: true
+  isser-id:
+    description: >
+      Specifies the Isser ID.
+    required: true
+  in-house:
+    description: >
+      Specify true for Apple Developer Enterprise Program.
+      Otherwise, specify false.
+      If omitted, false is specified.
+    required: false
+    default: false
+  key:
+    description: >
+      Specify the contents of the p8 file downloaded from Store Connect.
+    required: true
+  output-directory:
+    description: >
+      Specifies the output directory for JSON files.
+      If omitted, `runner.temp` is set.
+    required: false
+    default: ${{ runner.temp }}
+outputs:
+  output-path:
+    description: >
+      The output JSON file path is set.
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+branding:
+  icon: "box"
+  color: "orange"

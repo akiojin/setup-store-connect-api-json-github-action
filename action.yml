@@ -5,9 +5,9 @@ inputs:
     description: >
       Specifies the Key ID.
     required: true
-  isser-id:
+  issuer-id:
     description: >
-      Specifies the Isser ID.
+      Specifies the Issuer ID.
     required: true
   in-house:
     description: >

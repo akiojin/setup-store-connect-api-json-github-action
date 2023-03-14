@@ -5,7 +5,7 @@
 This action creates the JSON of the API key to use the Store Connect API.
 It also sets the environment variable `APP_STORE_CONNECT_API_KEY_PATH` for fastlane to the JSON file path created.
 
-Key ID and Isser ID can be obtained from
+Key ID and Issuer ID can be obtained from
 
 https://appstoreconnect.apple.com/access/api
 
@@ -19,7 +19,7 @@ https://appstoreconnect.apple.com/access/api
 - uses: akiojin/setup-store-connect-api-json-github-action@v0.1.0
   with:
     key-id: ${{ secrets.APPLE_STORE_CONNECT_KEY_ID }}
-    issuer-id: ${{ secrets.APPLE_STORE_CONNECT_ISSER_ID }}
+    issuer-id: ${{ secrets.APPLE_STORE_CONNECT_ISSUER_ID }}
     key: ${{ secrets.APPLE_STORE_CONNECT_KEY }}
 ```
 
@@ -30,7 +30,7 @@ https://appstoreconnect.apple.com/access/api
 | Name               | Required | Type      | Default       | Description                                                                                                    |
 | ------------------ | -------- | --------- | ------------- | -------------------------------------------------------------------------------------------------------------- |
 | `key-id`           | `true`   | `string`  |               | Specifies the Key ID.                                                                                          |
-| `issuer-id`        | `true`   | `string`  |               | Specifies the Isser ID.                                                                                        |
+| `issuer-id`        | `true`   | `string`  |               | Specifies the Issuer ID.                                                                                        |
 | `in-house`         | `false`  | `boolean` | `false`       | Specify true for Apple Developer Enterprise Program. Otherwise, specify false. If omitted, false is specified. |
 | `key`              | `true`   | `string`  |               | Specify the contents of the p8 file downloaded from Store Connect.                                             |
 | `output-directory` | `false`  | `string`  | `runner.temp` | Specifies the output directory for JSON files. If omitted, `runner.temp` is set.                               |

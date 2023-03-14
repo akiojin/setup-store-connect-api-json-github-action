@@ -2794,9 +2794,9 @@ const core = __importStar(__nccwpck_require__(810));
 const JSONHelper_1 = __importDefault(__nccwpck_require__(644));
 async function Run() {
     try {
-        const path = JSONHelper_1.default.Export(core.getInput('output-directory'), core.getInput('key-id'), core.getInput('issuer-id'), core.getBooleanInput('in-house'), core.getInput('key'));
+        const path = await JSONHelper_1.default.Export(core.getInput('output-directory'), core.getInput('key-id'), core.getInput('issuer-id'), core.getBooleanInput('in-house'), core.getInput('key'));
         core.exportVariable('APP_STORE_CONNECT_API_KEY_PATH', path);
-        core.info("Output JSON file and set the environment variable APP_STORE_CONNECT_API_KEY_PATH.");
+        core.info(`APP_STORE_CONNECT_API_KEY_PATH=${path}`);
     }
     catch (ex) {
         core.setFailed(ex.message);

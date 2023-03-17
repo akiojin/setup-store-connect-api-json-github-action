@@ -4,7 +4,7 @@
   "description": "This action creates the JSON of the API key to use the Store Connect API.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npm install && ncc build src/main.ts -o dist --license licenses.txt",
+    "build": "npm install && ncc build src/main.ts --license licenses.txt",
     "clean": "rimraf dist && rimraf node_modules && npm cache clean --force"
   },
   "repository": {
@@ -22,10 +22,8 @@
     "url": "https://github.com/akiojin/setup-store-connect-api-json-github-action/issues"
   },
   "homepage": "https://github.com/akiojin/setup-store-connect-api-json-github-action#readme",
-  "dependencies": {
-    "@actions/core": "^1.10.0"
-  },
   "devDependencies": {
+    "@actions/core": "1.10.0",
     "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.4",
     "@types/node": "18.15.3",
@@ -33,5 +31,6 @@
     "husky": "8.0.3",
     "rimraf": "4.4.0",
     "typescript": "5.0.2"
-  }
+  },
+  "private": true
 }

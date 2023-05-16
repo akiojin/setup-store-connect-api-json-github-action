@@ -12,17 +12,18 @@ async function Run()
             "key": core.getInput('key')
         })
 
-        const outputPath = path.join(core.getInput('output-directory'), 'APIKey.json')
+        const APIKeyFileName = 'api-key.json'
+        const outputPath = path.join(core.getInput('output-directory'), APIKeyFileName)
         core.setOutput('output-path', outputPath)
 
         await fs.writeFile(outputPath, json)
     
-        core.startGroup('Generate "APIKey.json"')
-        core.info(`APIKey.json:\n${json}`)
+        core.startGroup(`Generate ${APIKeyFileName}`)
+        core.info(`APP_STORE_CONNECT_API_KEY_PATH=${outputPath}`)
+        core.info(`${APIKeyFileName}:\n${json}`)
         core.endGroup()
 
-        core.exportVariable('APP_STORE_CONNECT_API_KEY_PATH', path)
-        core.info(`APP_STORE_CONNECT_API_KEY_PATH=${outputPath}`)
+        core.exportVariable('APP_STORE_CONNECT_API_KEY_PATH', outputPath)
     } catch (ex: any) {
         core.setFailed(ex.message)
     }

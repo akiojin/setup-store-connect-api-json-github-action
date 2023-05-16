@@ -2746,14 +2746,15 @@ async function Run() {
             "in_house": core.getBooleanInput('in-house'),
             "key": core.getInput('key')
         });
-        const outputPath = path_1.default.join(core.getInput('output-directory'), 'APIKey.json');
+        const APIKeyFileName = 'api-key.json';
+        const outputPath = path_1.default.join(core.getInput('output-directory'), APIKeyFileName);
         core.setOutput('output-path', outputPath);
         await fs.writeFile(outputPath, json);
-        core.startGroup('Generate "APIKey.json"');
-        core.info(`APIKey.json:\n${json}`);
-        core.endGroup();
-        core.exportVariable('APP_STORE_CONNECT_API_KEY_PATH', path_1.default);
+        core.startGroup(`Generate ${APIKeyFileName}`);
         core.info(`APP_STORE_CONNECT_API_KEY_PATH=${outputPath}`);
+        core.info(`${APIKeyFileName}:\n${json}`);
+        core.endGroup();
+        core.exportVariable('APP_STORE_CONNECT_API_KEY_PATH', outputPath);
     }
     catch (ex) {
         core.setFailed(ex.message);

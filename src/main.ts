@@ -2,6 +2,8 @@ import * as core from '@actions/core'
 import * as fs from 'fs/promises'
 import path from 'path'
 
+const APIKeyFileName = 'api-key.json'
+
 async function Run()
 {
     try {
@@ -12,12 +14,11 @@ async function Run()
             "key": core.getInput('key')
         })
 
-        const APIKeyFileName = 'api-key.json'
         const outputPath = path.join(core.getInput('output-directory'), APIKeyFileName)
-        core.setOutput('output-path', outputPath)
-
         await fs.writeFile(outputPath, json)
     
+        core.setOutput('output-path', outputPath)
+
         core.startGroup(`Generate ${APIKeyFileName}`)
         core.info(`APP_STORE_CONNECT_API_KEY_PATH=${outputPath}`)
         core.info(`${APIKeyFileName}:\n${json}`)

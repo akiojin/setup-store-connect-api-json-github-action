@@ -2738,6 +2738,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
 const fs = __importStar(__nccwpck_require__(292));
 const path_1 = __importDefault(__nccwpck_require__(17));
+const APIKeyFileName = 'api-key.json';
 async function Run() {
     try {
         const json = JSON.stringify({
@@ -2746,10 +2747,9 @@ async function Run() {
             "in_house": core.getBooleanInput('in-house'),
             "key": core.getInput('key')
         });
-        const APIKeyFileName = 'api-key.json';
         const outputPath = path_1.default.join(core.getInput('output-directory'), APIKeyFileName);
-        core.setOutput('output-path', outputPath);
         await fs.writeFile(outputPath, json);
+        core.setOutput('output-path', outputPath);
         core.startGroup(`Generate ${APIKeyFileName}`);
         core.info(`APP_STORE_CONNECT_API_KEY_PATH=${outputPath}`);
         core.info(`${APIKeyFileName}:\n${json}`);

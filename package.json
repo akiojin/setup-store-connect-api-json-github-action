@@ -1,6 +1,6 @@
 {
   "name": "@akiojin/setup-store-connect-api-json-github-action",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "This action creates the JSON of the API key to use the Store Connect API.",
   "main": "dist/index.js",
   "scripts": {

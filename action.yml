@@ -31,7 +31,7 @@ outputs:
     description: >
       The output JSON file path is set.
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
 branding:
   icon: "box"

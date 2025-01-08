@@ -2,7 +2,9 @@ name: Review PRs
 
 on:
   pull_request:
-    types: [ opened, synchronize ]
+    types:
+      - opened
+      - synchronize
 
 jobs:
   Review:
@@ -13,10 +15,11 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: akiojin/auto-review-github-action@v2
+        continue-on-error: true
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
-          target: 'ts,yml,md'
+          target: 'ts,yml'
           language: 日本語

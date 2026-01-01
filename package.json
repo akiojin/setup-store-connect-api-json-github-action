@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/akiojin/setup-store-connect-api-json-github-action#readme",
   "devDependencies": {
-    "@actions/core": "1.11.1",
+    "@actions/core": "2.0.1",
     "@types/node": "22.15.29",
     "@vercel/ncc": "0.38.4",
     "rimraf": "6.1.2",
